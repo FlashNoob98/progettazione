@@ -1,0 +1,141 @@
+\chapter{Protezione della cabina}
+Il distributore può richiedere le seguenti tarature minime che l'utente non può superare, allo stesso tempo non può richiedere delle tarature inferiori:
+\begin{table}[h]\centering
+    \begin{tabular}{| c | c | c |}\hline
+        $1^\circ$ soglia& $2^\circ$ soglia (51) & $3^\circ$ soglia (50) \\
+        $I>$ & $I>>$ & $I>>>$\\ \hline
+        da concordare &250A - 500 ms & 600A- 120ms \\ \hline
+    \end{tabular}
+\end{table}
+
+Il numero 51 è associato all'interruttore ritardato, compatibile con il generale in MT, il 50 è associato all'automatico, l'interruttore deve avere un potere di interruzione di 12,5 kA. Se c'è una cabina con doppio montante in uscita il distributore ammette che possa non essere utilizzato il dispositivo generale. Si utilizzano come interruttori quelli associati ad ogni montante, aumenta l'affidabilità dato che in caso di guasto lato media su una delle due montanti, potrebbe intervenire il generale a monte a causa della poca selettività.
+
+\section{Protezione degli interruttori di manovra e dei sezionatori}
+Per proteggere questi dispositivi da sovraccarico, le cui correnti nominali sono sempre molto elevate, sono protetti da sovraccarico mediante fusibili, se si considera ad esempio un fusibile da 63A lato MT, la corrente minima di fusione è circa $I_3 = 215A$, dunque protegge un interruttore da $I_r = 400A$.
+
+La protezione per il sovraccarico può essere ubicata anche a valle dell'apparecchiatura da proteggere, il dispositivo di protezione del sezioantore lato MT potrebbe essere anche l'interruttore generale di BT, purchè si tenga conto del rapporto di trasformazione. I sezionatori e gli interruttori di manovra sezionatori devono avere una corrente nominale di breve durata uguale o superiore alla corrente di corto circuito nel punto di installazione, inoltre devono avere la durata $t_k$ pari almeno al tempo di eliminazione del guasto.
+
+\section{Protezione dei cavi}
+Per quanto riguarda la protezione contro il sovraccarico dei cavi in MT le 
+norme non forniscono indicazioni, ciò non vuol dire che non si debba verificare 
+la protezione dei cavi, si assume che il fenomeno da controllare sia che la 
+sovratemperatura che non debba compromettere la durata di vita del cavo, dunque 
+la corrente di taratura $I_{tr}(MT) \leq I_z$. Si potrebbe adoperare anche 
+l'interruttore generale di BT per proteggere il cavo di MT, andrà tarato in 
+modo che $I_{tr}'\leq I_z$. Sarà necessario soddisfare una serie di condizioni, 
+un sistema di disequazioni da soddisfare per far funzionare le cose bene, c'è 
+una doppia possibilità di scelta. Il fusibile è solitamente ``antipatico'' per 
+proteggere lato MT, ad esempio si vuole proteggere il cavo MT con un 
+interruttore di manovra sezionatore con fusibile, ci si aspetta che le cose non 
+vadano benissimo, per proteggere il cavo contro il sovraccarico  si deve 
+garantre che $2.5 I_r \leq I_z$, la minima corrente di fusione deve essere 
+minore della portata del cavo, dunque $I_r \leq 0.4I_z$, il cavo è sfruttato al 
+40\%, è una scelta infelice, il fusibile funziona bene contro la protezione da 
+corto circuiti.
+
+\section{Protezione dei cavi contro CC}
+Il criterio di dimensionamento è sempre stato $I^2 t \leq K^2 S^2$, la sezione del cavo della linea MT era sufficiente se $S\geq 35\ mm^2$, con la corrente di corto circuito trifase 12500A e Inserisci TEMPO%secondi
+
+Si considera un caso di guasto lato BT, con un trasformatore da 2000kVA allora ci si chiede se interviene l'interruttore lato MT, interviene con un ritardo intenzionale di 0.5s, si esegue il calcolo, la corrente di CC va riportata al primario e si applica il criterio $I^2t\leq K^2S^2$, $I_b = 48.1\ kA$ la corrente lato bassa è stata calcolata con:$2000/(\sqrt{3}\cdot 400) =2.88kA/0.06 = 48.1kA $ in AT utilizzando il rapporto di trasformazione $20000/400$ pari a 50 sarà $48.1/50 = 0.962\ kA$.
+Si calcola dunque $I^2t\leq K^2S^2 \rightarrow S \geq 4.8\ mm^2$ non è dunque la condizione più onerosa per dimensionare il cavo, la condizione di corto circuito 12.5kA lato MT sarà sicuramente più gravosa nonostante il minor tempo di intervento di $0.1s$.
+
+\section{Protezione del trasformatore}
+È il componente cruciale e vitale della cabina, va tenuto conto che il trasformatore può essere dotato di protezioni interne come il relee Buchholz, sensibile al gas che si forma quando si innesca una scarica, l'indicatore del livello dell'olio, il termometro a contatti e la valvola di sovrapressione.
+
+È sufficiente monitorare le condizioni di funzionamento del trasformatore, il relee Buchholz è dotato di dispositivi di allarme e scatto, la condizione di allarme è compresa tra i 100 e i 
+la condizione di scatto si ha quando il volume di gas supera i 300 oppure la velocità dell'olio supera un certo livello.
+L'indicatore del livello dell'olio è utile ad effettuare una diagnositca real-time.
+
+Il termometro a contatti è utile a onitorare la temperatura nei punti 
+(hot-spot) vicini all'avvolgimento, anche questo ha una soglia di allarme e di 
+scatto.
+Se il trasformatore è sigillato esiste una valvola di sovrappressione in grado 
+di rilevare l'aumento di pressione in seguito ad una scarica.
+
+Le protezioni interne del trasformatore assolvono in modo diretto l'ufficio di 
+proteggerlo ma nella pratica corrente si sfrutta anche l'interruttore 
+automatico generale di BT. Se non ci sono queste protezioni termometriche 
+interne (oggi presenti in tutti i trasformatori) allora certamente questo sarà 
+la protezione principale per proteggere il trasformatore.
+
+L'interruttore generale di BT va tarato, per fargli eseguire una protezione di 
+rincalzo per il trasformatore, ad $1.1I_r$ con $I_r$ la corrente nominale 
+secondaria del trasformatore.
+Questo valore è scelto perchè già sono presenti le protezioni termometriche, se 
+queste ultime fossero assenti invece, la taratura viene effettuata proprio ad $I_r$. La corrente di sicuro intervento entro il tempo convenzionale, 
+solitamente 2h, è pari a $1.3 I_{tr}$ la condizione di sovraccarico è prevista 
+se il trasformatore è normalmente caricato al 70\% della $I_n$ può essere 
+sovraccaricato del $30\%$ proprio per 2h, allora la taratura è perfettamente 
+compatibile. Se la condizione di carico è superiore al 70\% si diminuisce $I_{tr}$ fino a 0.9. 
+
+\section{Calcolo della corrente di CC}
+Il distributore ha imposto delle tarature minime oltre le quali non si può 
+andare oltre, le protezioni lato MT devono funzionare come protezioni di 
+rincalzo in caso di malfunzionamento delle funzioni lato BT.
+La corrente di corto circuito al secondario è:
+\begin{equation}I_K(BT) = \frac{mI_r}{m\frac{u_{cc}}{100}+ \frac{I_r}{I_{kMT}'}}
+\label{eq:ICC_BT}
+\end{equation}
+$I_{kMT}'$ è la corrente di corto circuito trifase minima comunicata dal 
+distributore nel punto di connessione, $m$ è il rapporto di trasformazione.
+La $I_{kMT}'$ dipende certamente dalla potenza del trasformatore della cabina 
+primaria, dall'impedenza della linea, dalla distanza della cabina primaria, 
+potrebbe dunque essere inferiore a $12.5\ kA$ tale corrente è fondamentale per 
+tarare le protezioni ad intervenire anche con una corrente inferiore a $12.5\ kA$, ad esempio il calcolo precedente prevedeva la corrente di CC lato BT pari 
+a 48.1 A con potenza infinita della rete, considerando l'ipotesi di $I_{CC}(AT)=12.5 kA$ invece si ottiene una corrente di corto circuito di $\frac{50\cdot 2.88}{50\cdot0.06+\frac{2.88}{12.5}} = 44.6\ A$, gli interruttori devono 
+intervenire dunque per una corrente inferiore a quanto precedentemente stimato.
+
+Per dimostrare la \ref{eq:ICC_BT} si vede come al denominatore siano presenti 
+due impedenze relative, $i_{cc} = \frac{1}{x_{cc}} = \frac{I_{kMT}' m }{I_r}$.
+La corrente di CC lato BT attraverso l'impedenza relativa del trasformmatore 
+$$
+i_k = \frac{I_k}{I_r} = \frac{1}{x_{cc} + x_T}
+$$
+dunque
+$$
+I_k  = \frac{I_r}{\frac{I_r}{I_{kMT}'m}+ \frac{u_{cc}}{100}}
+$$
+
+Dipende dunque dalla corrente indicata dal distributore, la corrente di CC richiamata al primario è $I'_k = \frac{I_k}{m}$.
+
+Si considera di avere il CC lato BT, la protezione MT deve intervenire per la 
+minima corrente di corto circuito, in modo ritardato, certamente non è pari 
+alla corrente di corto circuito trifase, la corto circuito monofase è la più 
+piccola se la protezione è su tutte e tre le fasi, altrimenti la bifase se le 
+protezioni sono montate su due fasi.
+
+\subsection{CC monofase}
+Si considera la corrente di corto circuito monofase $I_{k1} = I_k$, si asusme 
+la corrente al circuito monofase identica a quella CC trafase.
+In caso di CC bifase
+$$
+N_1 I_{k1f}' = N_2 I_{k1} \Rightarrow \frac{I_{k1f}'}{I_{k1}} = \frac{N_2}{N_1} = \frac{1}{m\sqrt{3}}
+$$
+con $I_{k1f}$ la corrente di fase nel trasformatore
+$I_{k1}'= 0.95\frac{1}{\sqrt{3}m}I_k = \frac{0.55 I_k}{m}$
+Il fattore 0.95 tiene conto dell'abbassamento di tensione dovuto al corto 
+circuito.
+
+\subsection{CC bifase}
+La corrente di coro circuito $I_{k2}= \frac{\sqrt{3}}{2}I_k$ con $I_k$ la 
+corrente di CC trifase.
+Viene richiamata nella linea una corrente pari a $2I_{k2}'$ ma 
+$$
+I_{k2}' = \frac{1}{\sqrt{3}m} I_{k2} = \frac{\cancel{\sqrt{3}}}{\cancel{\sqrt{3}}m} \frac{I_k}{2}
+$$
+Se la protezione è montata su tre fasi la corrente minore è quella bifase, 
+viceversa se fossero state montate solo due protezioni, non ci sarebbe stato 
+intervento in questo caso con una taratura a 0.55 ma sarebbe stata necessaria 
+una taratura a $0.47\frac{I_k}{m}$.
+
+Un ulteriore funzionamento intrinseco del trasformatore che causa problemi è il 
+fenomeno dell'inserzione del trasformatore che potrebbe generare degli scatti 
+intempestivi, affinchè il dispositivo (50) non intervenga, occore che abbia una 
+corrente di taratura maggiore di $I_{0i}{\sqrt{2}} \simeq 0.707 I_{0i}$ con $I_{0i}$ la corrente di inserzione, è una condizione facilmente soddisfabile.
+
+Il (51) potrebbe intervenire?
+$I_{tr}(51)\geq \frac{I_{0i}}{\sqrt{2}}$ se non fosse sufficiente si dovrebbe 
+aggiungere un ritardo intenzionale al fine di soddisfare la curva tabellata del 
+ritardo intenzionale $t_r$ rispetto al tempo caratteristico del fenomeno $T_i$ 
+in funzione di $\frac{I_{r}(51)}{I_{0i}}$.
+

@@ -1,0 +1,94 @@
+\section{29/11/22}
+%Disegno trasformatore triangolo-stella con cc monofase BT
+In caso di corto circuito monofase in BT, si ha una corrente monofase in AT che 
+impegna solo la fase A e B, si vuole analizzare il fenomeno in termini di terne 
+di sequenza
+$$
+\bar{I}_{ds}  = \bar{I}_{is} = \bar{I}_{0s}
+$$
+Lato primario dunque si dovrebbe trovare la corrente relativa alla fase C pari 
+a zero.
+La componente omopolare è blocacta nel triangolo in BT, la componente alla 
+sequenza diretta 
+$$
+\begin{aligned}
+	I_{dp} &= \frac{I_{ds}}{m}e^{-j\pi/6} \\
+	I_{ip} &= \frac{I_{is}}{m}e^{j\pi/6} \\
+	I_{c} &= \alpha I_{dp} + \alpha^2 I_{ip} \\
+    I_c &= \alpha \frac{I_{ds}e^{-j\pi/6}}{m} + \frac{\alpha^2 I_{ds}e^{j\pi/6}}{m} = 0
+\end{aligned}
+$$
+L'ultimo termine è pari a zero moltiplicando gli $\alpha$ per i termini 
+esponenziali.
+
+Se la cabina è alimentata da un solo trasformatore, non è un problema la non 
+selettività delle protezioni lato bassa e lato media, non si avrebbe comunque 
+la possibilità di alimentare parzialmente l'impianto.
+Nel caso in cui fossero presenti carichi importanti, ad esempio servizi di 
+sicurezza alimentati a monte dell'interruttore di BT, che vanno alimentati 
+anche in caso di guasto diventa importante il discorso della selettività. 
+
+Se ci sono più trasformatori non in parallelo, ovvero esitono più vie di 
+alimentazione dell'impianto, nel caso di CC in BT è fondamentale che intervenga 
+l'interruttore in BT relativo a quella sezione di impianto.
+
+Ad esempio si realizza un impianto con tre trasformatori, tre inerruttori a monte di ciascun trasformatore e un interruttore generale a monte di questi tre, si potrebbe anche non avere una completa selettività in caso di intervento del DG e di un interruttore su una delle tre linee, si potrà comunque richiudere il DG dopo una breve discontinuità dell'alimentazione, si può ripristinare il servizio.
+
+\subsection{Esempio}
+Si ha una cabina con un TA 300/5, classe di precisione 5p30, l'errore composto è fondamentale per i sistem idi protezione, vengono effettuate delle tarature e tutto deve funzionare con precisione, soprattutto ad esempio con i relee a microprocessore. 5p30 indica che si ha una precisione del 5\% fino a 30 volte la corrente nominale, è un dispositivo difficile da realizzare, deve funzionare in un ampio range di correnti.
+
+Le tarature fornite dal distributore sono le seguenti
+\begin{table}[h]\centering
+    \begin{tabular}{c c c}
+        $I>>$  & 250A & 0,5s\\
+        $I>>>$ & 600A & 0,12s
+    \end{tabular}
+\end{table}
+
+Nella cabina sono presenti due trasformatori in olio da 630kVA con le seguenti caratteristiche e corrente di corto circuito trifase:
+$$\begin{aligned}
+    &V_p = \\
+    &i_{N1} = \\
+    &19.2 A \\
+    &I_{N2} = 630000/400/\sqrt{3} = 909A \\
+    &I_{CC2} = 909/0.06 \\
+    &I_{K}' = 15150/50 = 303A
+\end{aligned}
+$$
+Per la corrente di corto circuito bifase minima si ha $0.47\cdot I_k/m$, con
+$$
+I_k  = \frac{I_r}{\frac{I_r}{I_{kMT}'m}+ \frac{u_{cc}}{100}}
+$$
+deve essere inferiore a $I_cc=a $
+
+All'atto dell'inserzione si ha una corrente pari a circa 11 volte la corrente nominale.
+
+Il DG è 250/600, deve funzionare tutto in maniera selettivia, si ricerca una selettività energetica. C'è un limite superiore alla taratura. 
+
+Per le protezioni 50
+
+Si comincia a vedere la taratura a 450A , per CC lato BT, si ha una correte richiamata al pimario.
+
+
+Considerando la curva di $\frac{t_r}{t_i}$ con $=0.65$ si ha $\frac{t_r}{T_i} = 0.1$ per un trasformmatore da 630 kVA si hano 30ms, si è certi che con questa taratura non intervenga il ritardato all'atto dell'inserzione del trasformatore.
+
+In caso di CC bifase lato bassa, la corrente richiamata l primario è $139.1\ A$ certamente interviene il ritardato.
+
+\subsection{CC trifase} In questo caso la $I_K' = 304\ A$ aggiungendo un 30\% a causa di asimmetrie si ha circa 395A, non interviene il relee istantaneo. 
+
+Si rappresenta in tabella il tempo di eliminazione del guasto in funzione della corrente al primario
+%%%% Disegna grafico
+
+La $I_K' = 304\ A$, la corrente minima è 139.1 A.
+
+
+La sezione in BT si proteggge mediante un termometro a contatti e come protezione di rincalzo un interruttore con $I_n = 1250\ A$ data la corrente al secondario pari a 909 A, il relee termico è regolabile, fino ad $1.1I_{tr}$ vista la presenza dell'interruttore, dunque il termico sarà a 1000 A.
+Per la taratura del magnetico si sceglie una soglia pari a $6I_{tr}$ ovvero $6000/50 = 120\ A$ con un tempo di eliminazione del guasto di 80ms, c'è la selettività amperometrica fino a 120 A, la differenza tra 0.2 e 0.08 c'è una differenza di 70ms, ovvero una selettività cronometrica, la differenza tra il tempo di interruzione del guasto e il tempo di intervento degli interruttori potrebbe essere inferiore al tempo per il quale il produttore garantisce la protezione. Con una corrente lato BT $> 6500 A$ la selettività cronometrica non è garantita.
+Tra gli interruttori in BT e quelli in MT è garantita una selettività di tipo energetico. 
+
+Se la protezione del trasformatore fosse stata affidata al fusibile con corrente nominale $I_n = 40 A$ e $I_3 = 130A \geq 2.5\cdot I_n$.
+%PAG 112 tuttonormel
+
+
+
+
