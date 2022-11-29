@@ -89,6 +89,64 @@ Tra gli interruttori in BT e quelli in MT è garantita una selettività di tipo 
 Se la protezione del trasformatore fosse stata affidata al fusibile con corrente nominale $I_n = 40 A$ e $I_3 = 130A \geq 2.5\cdot I_n$.
 %PAG 112 tuttonormel
 
+\section{Relee di protezione}
+Il sistema di protezione deve essere idoneo e resistente agli errori anche in un certo range di variazione di correnti, i relee di protezione sono di vario tipo: elettromeccanico, statico-elettronico, a microprocessore.
+Quelli attualmente più utilizzati sono di tipo statico o a microprocessore.
+L'inserimento di queste protezioni sono ad inserzione diretta o indiretta se si trovano a diretto contatto o meno con la linea in MT mediante TA o TV di protezione. La lettera ``p'' nella sigla del TA e del TV indica proprio la protezione.
+I dispositivi di protezione hanno spesso bisogno di un'alimentazione per poter funzionare correttamente, fornita mediante fonti esterne o direttamente dai trasformatori di protezione.
 
+I relee solitamente adoperati sono:
+\begin{itemize}
+    \item Dispositivo termico di protezione (26)
+    \item Relee di minima tensione (27)
+    \item Relee di massima corrente a tempo inverso (51)
+    \item Relee di massima corrente istantaneo (50) e ritardato (51)
+    \item Relee di massima corrente omopolare ritardato (51n)
+    \item Relee direzionale di massima corrente (67n)
+    \item Relee di richiusura in corrente alternata (79) 
+\end{itemize}
+Prima di mettere in funzione l'impianto è necessario verificare la funzionalità dei dispositivi di protezione.
+I relee di massima corrente possono essere collegati su due o tre TA.
 
+Le soglie di intervento del relee a tempo indipendente sono tutte ritardabili, per quanto riguarda invece le caratteristiche a tempo-dipendente esiste la seguente relazione
+$$
+t  = TMS \frac{K}{\left(\frac{I}{I_s}\right)^\alpha -1}
+$$
+$TMS$ è il Time-Multiplier-Setting mentre $K$ ed $\alpha$ sono i parametri di taratura.
+\begin{table}[h]\centering
+    \begin{tabular}{|c | c|c|c|}\hline
+            & NIT & VIT & EIT \\ \hline
+        $\alpha$ & 0.2 & 1.0 & 2.0 \\ \hline
+        $K$ & 0.14 & 13.5 & 80.0 \\ \hline
+    \end{tabular}
+\end{table}
+Le sigle sono NIT(Normal inverse time), VIT(Very inverse time), EIT(Extreme inverse time).
 
+Tutti i sistemi di protezione devono essere molto affidabili ma soprattutto 
+soddisfare delle specifiche, il relee di massima corrente ha una prima soglia, 
+una seconda e terza soglia di tipo ritardata e istantanea, inoltre deve avere 
+un tempo base minore o uguale a 50ms per corrente di ingresso pari ad 1.2$I_n$, 
+ovvero il tempo che impiega il relee a misurare la corrente ed emettere il 
+comando di apertura. Il tempo di ricaduta ovvero il tempo necessario a 
+ripristinare lo stato di polarizzazione dopo aver percepito il guasto, nel caso 
+di due relee in serie, l'intervento di un relee a valle deve intervenire prima 
+di quello a monte, ovvero quello a monte non deve ricadere nello stato iniziale 
+di guasto anche se quello a valle è intervenuto aprendo il circuito.
+Dunque il tempo di ricaduta è l'intervallo di tempo tra l'istante di tempo in 
+cui si modifica la grandezza misurata e l'istante in cui il relee cambia lo 
+stato, ovvero il suo circuito d'uscita cambia lo stato.
+
+Il rapporto di ricaduta rappresenta il rapporto tra il valore della grandezza controllata che determina la diseccitazione della protezione e il valore che ne aveva determinato l'eccitazione.
+Più il relee è sensibile e più questo rapporto tende ad 1, è pari a 0.95 nei relee di massima corrente, in un relee di minima tensione il rapporto è invece leggermente maggiore di 1.
+
+\subsection{Esempio due sistemi in serie}
+Siano due sistemi di protezione connessi in serie, A e B, di quanto si deve conferire il ritardo per compensare gli errori e le modalità di funzionamento dei due componenti? Il $\Delta t$ di ritardo deve essere superiore al tempo base del relee più l'errore considerato positivo a vantaggio della sicurezza più il tempo di interruzione, è necessario aggiungere anche un tempo di attesa (tempo di ricaduta) affinchè si ritorni nello stato precedente, si aggiunge un margine di sicurezza $\tau$
+$$
+\Delta t = t_{eB} + \Delta\varepsilon_{teB} + t_{iB} + t_{rA} + \tau
+$$
+gli ordini di grandezza sono circa 0.1s, 25ms, 0.1s, 40ms, 200ms.
+Per il relee queste grandezze sono fondamenali, i circuiti amperometrici devono avere inoltre una sovraccaricabilità per almeno un secondo.
+
+I relee istantanei possono essere dotati di bobina antagonista per bilanciare la seconda armonica dovuta all'inserzione del trasformatore.
+
+Il relee omopolare inoltre è utilizzato per misurare la somma delle correnti, funge da differenziale. 
