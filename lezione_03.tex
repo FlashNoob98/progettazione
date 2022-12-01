@@ -1,0 +1,154 @@
+
+\subsection{01-12 Protezioni per guasto a terra}
+Per questa tipologia di guasto è candidato il relee 51n che percepisce la componente omopolare, esiste un problema per quanto riguarda la selettività dei sistemi di protezione, è necessario invece il relee 67n, relee direzionale di terra. È previsto in aggiuntiva al 51n che deve invece sempre essere presente, il 67n potrebbe nonn rilevare il doppio guasto a terra.
+
+Caratteristiche del 51n:
+\begin{itemize}
+    \item Tempo base $\leq$ 50ms per $1.2 \ I_n$
+    \item Tempo di ricaduta $\leq$ 100ms
+    \item Rapporto di ricaduta $\geq$ 0.9
+    \item Assorbimento amperometrico $\leq 0.2 VA$ per $I_n$ pari ad 1A
+    \item Assorbimento voltmetrico $\leq 1 VA$ per $I_n$ pari a $5A$
+\end{itemize} 
+
+Il relee direzionale di terra 67n ha le seguenti caratteristiche:
+\begin{itemize}
+    \item Tempo base $\leq$ 80ms
+    \item Tempo di ricaduta $\leq$ 100ms
+    \item Rapporto di ricaduta $\geq$ 0.9
+    \item Assorbimento amperometrico $\leq 0.2 VA$ per $I_n$ pari ad 1A
+    \item Assorbimento voltmetrico $\leq 1 VA$
+\end{itemize}
+Percepisce con grande sicurezza se il guasto è a monte o a valle, è accoppiato al 51n.
+
+Misurando la differenza di fase tra la tensione omopolare e la corrente omopolare si può determinare se il guasto è avvenuto a monte o a valle del relee.
+La commutazione dal 51n al 67n deve avvenire entro 1 secondo.
+
+Si analizza il problema della taratura, il 67n potrebbe essere richiesto per un problema di lunghezza dei cavi in MT lato utente, non si può in ogni caso rinunciare al 51n per il doppio guasto a terra.
+
+I TV e i TA induttinvi hanno una serie di problematiche e sensibilità ai corti circuiti, inoltre i TA di protezione sono difficili da realizzarsi, devono funzionare in un ampio range di correnti, è difficile realizzarli ad alta precisione, è rrelativamente importante nel caso di CC da 12,5kA.
+
+I TA di misura ordinari devono avere un range di funzionamento tra 0.1 ad 1.2 $I_n$, saturano rapidamennte, in modo tale da non danneggiarsi in caso di CC e proteggere gli strumenti di misura.
+
+Per alimentare un relee di protezione un TA di misura sicuramente non è sufficiente, il TA andrebbe subito in saturazione, si perde la linearità al secondario, si rischia il non intervento del sistema di protezione.
+I TA destinato ai sistemi di protezione è dunque più difficile da realizzarsi, è necessario collegare a terra i circuiti del secondario del TA con dei cavi di sezione minima di 2.5 $mm^2$ se protetti meccanicamente o $4\ mm^2$ se non protetti meccanicamente, per un problema di sicurezza, per ridurre i disturbi.
+
+Il sistema di protezione va posto ad una certa distanza dal TA, ciò dipende dalla prestazione del TA, le seguenti caratteristiche di targa, esercizio:
+\begin{itemize}
+    \item $Is2$ = 1,2,5 A
+    \item $K_{\phi_2} = \frac{I_{\phi 2}}{I_{S2}}$
+    \item Tenisone massima $24 kV$
+    \item Potenza massia erogata al secondario senza uscire dalla classe di precisione.
+    \item Errore composto compreso tra il 5 e il 10 \%
+    \item Fattore di potenza specificato dal costruttore
+\end{itemize}
+Si vede la classe di isolamento che vede la sovratempeatura massimma per un TA di $ 85 \ K$ di classe B. 
+
+
+ALF fattore limite di precisione, segue la classe di precisione, ad esempio 5p15 indica che la precisione è mantenuta al 15\% fino ad una corrente che è 15 volte la corrente nominale ovvero
+$$
+ALF = \frac{I_{p_l}}{I_{p_2}}
+$$
+per i TA in esame si analizzeranno anche i 5p30 a causa delle elevate correnti in gioco.
+
+per un TA con una corrente nominale primaria di 300 A, con un 30 \% garantisco fino a 9kA ma la CC standardizzata e 12.5 kA, sembra insufficiente, la norma CEI 0-16 dichiara idoneo il TA.
+
+Il fattore limite di precisione garantisce la prestazione nominale ma se il carico secondario è inferiore alla prestazione nominale, l'ALF aumenta.
+$$
+ALF' = ALF \frac{R_s I^2_{s_2} + (VA)_r}{R_s I^2_s + (VA)_C}
+$$
+il carico secondario è costituito dai collegamenti e dall'impedenza del relee.
+Solitamente un relee assorbe anche meno di 1VA, non bisogna comunque superare la prestazione nominale, il carico `vincolato'.
+
+Il TA deve fronteggiare il CC, bisogna determinare le prestazioni in condizioni critiche, si definisce
+\begin{itemize}
+    \item La corrente termica di breve durata nominale, il valore efficace della corrente primaria che il TA sopporta per un secondo con il secondario in CC, denominata $I_{th}$.
+    \item La corrente nominale dinamica, il valore di cresta (di picco) della corrente primaria massima che il TA sopporta senza danno, solitamente $I_{dyn} = 2.5\cdot I_{th}$.
+    \item Corrente termica nominale permanente, con il secondario collegato ad un circuito la cui potenza assorbita corrisponde alla prestazione nominale.
+\end{itemize}
+
+\newpage
+La bobina di ROGOWESKY?: il nucleo su cui è avvolto il primario è formato da un materiale non magnetico, a fronte di una corrente di ingresso si ha una tensione secondaria proporzionale.
+In questo caso non è richiesta la messaa terra del secondario, l'apertura del secondario inoltre non danneggia il TA, come accade invece per quelli di tipo induttivo. Dualmente è critica la condizione di CC per il TV.
+
+Le grandezze caratteristiche di un TA non induttivo sono:
+\begin{itemize}
+    \item Corrente nominale
+    \item Tensione nominale secondaria, proporzionale alla corrente
+    \item Classe di precisione, solitamente 3p e 5p, più preciso dei precedenti
+    \item Tensione più elevata sopportabile, 24kV
+    \item $I_{th}$
+    \item $I_{dyn}$
+    \item Classe di isolamento in termini di sovratemperatura
+\end{itemize}
+
+Come si sceglie un TA? La corrente nominale primaria $I_{dr}$ deve essere scelta in base ad una condizione di regime sinusoidale permanente, pari alla corrente di sovraccarico prevedibile nell'impianto.
+In genere si sceglie la $I_{dr}$ da 1 a 1.5 la corrente di taratura da sovraccarico.
+La corrente nominale secondaria è tra 1 e 5 A, compatibile con le correnti di ingresso dei relee di protezione.
+È importante che la corrente di CC sul primario non superi le correnti prima definite $I_{th}$ e $I_{dyn}$. 
+La corrente di intervento di una protezione è espressa in valore relativo rispetto alla corrente nominale primaria, ossia 
+$I_{tr}/I_{pr}$.
+
+Nell'ipotesi di linearità se al primario la corrente di intervento è 0.8 volte la corrente nominale, allora anche al secondario la corrente di regolazione della protezione sarà pari a 0.8 volte la corrente nominale della protezione.
+La scelta del TA di tipo non induttivo presenta simili caratteristiche,
+la corrente nominale deve essre pari alla corrente di sovraccarico e allo stesso modo vengono definite $I_{th}$ e $I_{dyn}$.
+
+I cavetti di collegamento suggeriti dalla norma sono $6mm^2$ per $I_{2n} = 5A$ e $4mm^2$ per $I_{2n} = 1A$.
+Si vuole calcolare la lunghezza massima di un cavo di collegamento tra secondario e relee, i cavi hanno delle perdite, si deve tener conto della potenza dissipata sui cavetti di collegamento, si supponga in questo caso una corrente secondaria di $5A$ e la potenza nominale assorbita dalle protezioni è $1VA$, la prestazione nominale è $10VA$.
+$$
+2\rho \frac{L}{S}I^2_{sr} + 1 = 10 \Rightarrow 2\rho\frac{L}{6}\cdot 25 = 9
+$$
+la potenza dissipata dal cavetto deve essere al massimo pari a 9W.
+La $\rho$ è calcolata a $70^\circ$, si può adoperare un cavo in PVC senza molti problemi, dunque sarà $0.0178 \rightarrow 0.0222$, la lunghezza massima sarà pari a 48m.
+Lavorando ad un punto inferiore a quello nominale si aumenta il fattore limite di precisione, può dunque essere comodo ridurre la lunghezza dei cavetti.
+
+\newpage
+Requisiti del TA per la protezione generale dell'impianto, sono necessarie caratteristiche importanti, alla luce di quanto presentato, i TA sono considerati autmaticamente idonei quelli con le seguenti caratteristiche:
+\begin{itemize}
+    \item $300/5$ o il $300/1$
+    \item Prestazione $10\ VA$ o $5\ VA$ 
+    \item Classe di precisione 5p
+    \item Fatore limite nominale di precisione 30
+    \item Prestazione effettiva a 5A è $0.4 \Omega$ mentre ad 1A è $5\Omega$
+\end{itemize}
+
+Si possono considerare TA di tipo non induttivo con le seguenti caratteristiche:
+\begin{itemize}
+    \item $I_{pr} \geq 300 A$
+    \item Corrente termica di breve durata $I_{th} \geq 12.5 kA$
+    \item Tensione noinale secondaria $0.2V$
+    \item Rapporto di trasfomazione corrente/tensione $300A/0.2V$
+    \item 
+    \item 5p30 ?
+    \item Corrente nominale dinamica paria a 31.5 kA
+\end{itemize}
+
+Quello induttivo va a valle del dispositivo di protezione, quello non induttivo può andare a monte.
+
+Per i TA omopolari è importante che diano correnti al secondario con precisioni accettabili sia in caso di guasto a terra che doppio guasto a terra qualunque sia la condizione di esercizio del neutro.
+\begin{itemize}
+    \item $I_{th} = 1.2 I_{sr}$
+    \item $I_{nthcc} = 12.5 kA$
+\end{itemize}
+
+
+\section{TV}
+\subsection{TV di tipo induttivo}
+L'ufficio dei TV di tipo induttivo è quello di dare informazioni riguardo la tensione stellata rispetto a terra o omopolare o per misurare le tensioni di fase in caso di guasto a terra con neutro isolato.
+
+Si consideri un TV con rapporto $U_n/100$, un morsetto del secondario è collegato a terra, la tensione su una delle bobine del secondario è a 100V, le bobine del primario sono invece collegate tra la fase A e B e tra B e C.
+È prevista la presenza di una resistenza di smorzamento in parallelo al secondario, in caso di guasto, il circuito magnetico del TV, conuna grande induttanza, potrebbe andare in risonanza con le capacità lato linea, la resistenza di smorzamento limita tale fenomeno, il valore di tale resistenza è da richiedere al costruttore del TV. Un TV può alimentare più relee in parallelo purchè non si superi la prestazione.
+
+I requisiti per la protezione di tipo generale sono:
+\begin{itemize}
+    \item Classe $0.5-3p$ ossia ha una precisione di $0.5p$ tra l'80\% e il 120\% della tensione nominale, altrimenti l'errore, fino al 190\% della $I_n$ si ha un errore del $3\%$.
+    \item Prestazione nominale 50VA
+    \item Induzione di lavoro $\leq 0.7T$ per evitare condizioni di saturazione
+    \item Valore della resistenza di smorzamento da inserire
+\end{itemize}
+
+
+\subsection{TV di tipo  non induttivo}
+Sono solitamente partitori resistivi o capacitivi, la classe di precisione è sempre $0.5-3p$.
+Fattore di tensione, la tensione nominale primaria per determinare la tensione massima per cui il trasformatore garantisce le prestazioni previste dalla norma, pari a 1.9.
+
