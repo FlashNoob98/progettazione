@@ -68,3 +68,61 @@ mediante le capacità a valle del DG, che sentirebbe comunque una corrente di
 guasto e interverrebbe senza necessità, a causa della corrente capacitiva che 
 si richiude a valle superando la corrente di taratura.
 
+Qual'è la lunghezza limite oltre il quale la corrente di guasto in un impianto adiacente causa l'intervento di un relee omopolare tarato a 2A?
+Il calcolo è abbastanza brutale
+$$
+I_g = 0.2\cdot L\cdot U \leq 80\% \cdot 2 \leq 1.6 A \Rightarrow L \leq \frac{1.6}{U}\ [m]
+$$
+Con una rete a 20kV si ha un'estensione di 0.4kmm ovvero 400 metri, a 15kV sono 533m.
+
+Qualora la rete non possa essere limitata in estensione si deve necessariamente prevedere il 67n. La protezioned eve funzionare sia per neutro isolato che neutro compoensato, potrebbe essere cambiato dal gestore per vari motivi di interconnessioni ecc...
+\begin{table}[h]\centering
+    \begin{tabular}{|c|c|c|}\hline
+        Stato del neutro & Protezione 67n & Protezione 51n \\ \hline
+        Neutro isolato & NO  & $2A/170ms\ |\ \text{Inutilizzata}$ \\ \hline
+        Neutro isolato & SI & Inutilizzata $|\  1.4I_f\ /\ 170ms $ \\ \hline  
+        Neutro compensato & NO &  $2A\ /\ 450ms \ |\ 1.4I_F\ /\ 170ms $\\ \hline
+        Neutro compensato & SI & Inutilizzata $|\ 1.4I_f\ /\ 170ms$ \\ \hline
+    \end{tabular}
+\end{table}
+Il valore $1.4 I_F$ è molto cautelativa, la corrente di secondo guasto sarà sicuramente molto maggiore.
+
+L'utente può essere considerato connesso ad un impianto di terra globale, un 
+sistema interconnesso composto dagli impianti di terra di più cabine, il 
+sistema tende ad essere equipotenziale, la progettazione dell'impianto di terra 
+si può ritenere implicitamente soddisfatta, va previsto un anello interrato 
+intorno alla cabina in ogni caso, il conduttore di terra deve avere una sezione 
+di almeno 16$mm^2$ in rame o $50mm^2$ se in acciaio e una resistenza meccanica 
+e alla corrosione, per resistere alle sollecitazioni termiche la sezione deve 
+essere almeno $25mm^2$, esistono dei coduttori di terra particolarmente 
+importanti che vanno dimensionati con più attenzione.
+
+Si utilizza il seguente schema
+\begin{itemize}
+    \item CT1, conduttore di terra, anche se ha l'ufficio di un conduttore di protezione $>\ 25mm^2$
+    \item CT2, conduttore di terra, sufficiente $25mm^2$
+    \item PE1, messa a terra del neutro 
+    \item PE2, conduttore di protezione 
+    \item Sbarra di terra
+\end{itemize}
+In caso di corto circuito monofase a terra nel quadro di bassa tensione, il PE2 si dimensiona per tale corrente per il tempo di interruzione del guasto dell'interruttore in BT.
+
+In caso di guasto sulla carcassa in BT, sono coinvolti i conduttori PE1 e CT1, la corrente è la stessa di prima ma è cambiato il tempo di intervento,. interviene in questo caso l'interruttore a monte con il tempo ritardato, di conseguenza il dimensionamento di CT1 è più oneroso.
+
+\subsection{Esercizio in parallelo dei trasformatori}
+Un sistema molto affidabile è quello radiale doppio, c'è una rigida 
+duplicazione dei componenti, ha un problema di costo ma ha il problema 
+dell'esercizio in parallelo dei trasformatori, si deve sempre limitare la 
+corrente di corto circuito in BT, ad un valore limite di 50kA.
+
+%Schema con congiunntore
+In questa configurazione ogni trasformatore è dimensionato per poter alimentare 
+integralmente l'impianto, il congiuntore Q3 va chiuso sempre prima di aprire Q1 
+o Q2.
+
+Se il numero di trasformatori in parallelo è maggiore di 2 allora anche gli interruttori dei singoli trasformatori sono chiamati ad interrompere una $I_{cc}$ di quella che dovrebbero interrompere se non fossero in parallelo.
+
+\subsection{ulteriori considerazioni sulla cabina}
+La cabina è considerata una costruzione dunque è sottoposta a concessione edilizia, deve rispettare le prescrizioni del regolamento edilizio, la parte relativa al dimensionamento di solai e pavimenti è particolarmente onerosa a causa dei carichi concentrati notevoli causati dal trasformatore. Non si devono propagare gli incendi all'esterno.
+
+
