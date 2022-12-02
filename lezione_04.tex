@@ -1,0 +1,70 @@
+
+Si assume come criterio di progettazione una caduta di tensione pari ad un massimo di $0.5 \%$
+$$
+\Delta_{V_{amm}}  = 0.5\% U_n
+$$
+Il relee direzionale in esame è il 67n, presenta un circuito amperometrico ed uno voltmetrico.
+La tensione secondaria è $U_{sr} = 100V$, la prestazione del TV è 50VA, la lunghezza sarà semplice da calcolare, la sezione candidata è più piccola a quella necessaria a circuito amperometrico, $S = 1.5 mm^2$, dunque
+$2\rho \frac{L}{S}*0.25^2 \leq 0.5$, la lunghezza massima ricavata è circa 40 metri.
+
+Il posizionamento dei TA e dei TV possono esser einstallati a monte o a valle del dispositivo generale, esistono 6 casi possibili, in funzione della specifica applicazione dei relee.
+
+\begin{enumerate}
+    \item TA di tipo induttivo e TV induttivi, sono delicati dunque è opportuno collegarli a valle del dispositivo generale, il toroide impiegato per i guasti a terra è molto robusto, può essere collegato a monte del DG
+    \item Analogamente al caso precedente il toroide può essere collegato a valle
+    \item TA collegato a monte, comanda direttamente l'apertura del DG, è un vantaggio perchè il guasto potrebbe anche occorrere a monte del DG nonostante la bassa probabilità, lo spostamento a monte del TV prevede la disposizione di un fusibile e un sezionatore
+    \item TV di tipo ohmico-induttivo può essere spostato a monte
+    \item TO trasformatore omopolare è spostato a monte, non ha criticità
+\end{enumerate}
+Qualora ci sia il guasto al TV, necessario per il 67n, è necessario in ogni caso utilizzare la logica del 51n sempre presente.
+
+\section{Collaudo di un impianto di terra di cabina}
+Logica inerente la protezione dell'impianto di terra, si deve considerare il fattore $r$ per il quale moltiplicare la corrente di guasto per calcolare la corrente dispersa nel terreno, capire perchè il tempo di guasto è quello del distributore e non di utente.
+
+La corrente di guasto $I_F$ in caso di neutro isolato è pari a $I_F = (0.03L_1 + 0.2L_2)U$, qualora la rete sia esercita a neutro isolato. L'estensione della 
+rete in MT è nota al distributore che comunicherà questa corrente, c'è il 
+progressivo cambio di gestione del neutro, si sta effettuando il passaggio al 
+sistema a neutro compensato, si hanno i valori di 50A a 20kV, 40A a 15kV e 75A 
+a 30kV.
+
+Il distributore comunica anche il tempo di eliminazione del guasto $t_f$ che può anche essere maggiore di 10 secondi, la corrente è sensibilmente più piccola rispetto al caso di neutro isolato. Il guasto a terra può avvenire a monte del DG, dunque il tempo è quello del distributore ma si richiude comunque una corrente nell'impianto di terra dell'utente.
+
+
+Per la progettazione dell'impianto di terra bisognerebbe cosiderare effettivamente la corrente dispersa nel terreno $I_E$, in generale collegata alla corrente $I_F$ mediante un coefficiente moltiplicativo minore di 1.
+
+Se il distributore non collega gli schermi a terra, il distributore potrebbe richiedere di non collegare lo schermo a terra, in tal caso il coefficiente $r=1$, la condizione è più conservativa.
+
+Se il distributore collega gli schermi a terra e non comunica nulla all'utente, $r=0.7$, se il numero delle cabine è minore di 3, allora $r=1$.
+
+Nella verifica della bontà di funzionamento dell'impianto di terra, se $R_E$ 
+non è minore di $U_{TP}/I_E$ verifica se la rete è magliata, se sì, verifica se 
+$R_E\leq 2\frac{U_{TP}}{I_E}$ altrimenti se non è magliata misura le tensioni 
+di contatto $U_{T} \leq U_{TP}?$, in caso contrario è necessario asfaltare la 
+superficie aumentando la resistività superficiale del terreno. Diminuisce 
+drasticamente la tensione di contatto rispetto alla tensione di contatto a 
+vuoto.
+Dopo aver asfaltato la superficie vanno rieseguite le misure di contato.
+
+Le strutture generali di un impianto di terra partono da un semplice anello  
+interrato ad una profondità ottimale di 0.5-1 metri, al massimo solitamente 
+80cm, si potrebbero prevedere dei picchetti, in seguito un ulteriore anello 
+immerso ad una profondità maggiore, solitamente collegato ad una griglia 
+elettrosaldata e collegato al dispersore di stabilimento, ovvero la struttura 
+in cemento dello stesso. L'impianto di terra di cabina dunque, previsti tutti 
+gli elementi appena citati può essere collegato ulteriormente solo alla terra 
+di fondazione dello stabilimento, non ha senso aggiungere ulteriori dispersori 
+intenzionali.
+
+Per la protezione contro i guasti a terra è necessario un relee, sicuramente un 
+TA toroidale omopolare con il primario passante e un anello toroidale con un 
+punto collegato a terra, è il modo più semplice di rilevare il guasto a terra, 
+si è visto l'accorgimento da adottare per gli schermi dei cavi, è il 51n, 
+potrebbe accadere per esigenze di selettività, qualora l'estensione della rete 
+in cavo sia tale da ricorrere all'utilizzo del 67n.
+
+Qualora ci fosse un guasto a terra a monte del DG, deve intervenire la 
+protezione dell'ente distributore, la corrente di guasto potrebbe richiudersi 
+mediante le capacità a valle del DG, che sentirebbe comunque una corrente di 
+guasto e interverrebbe senza necessità, a causa della corrente capacitiva che 
+si richiude a valle superando la corrente di taratura.
+
