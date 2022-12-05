@@ -1,0 +1,147 @@
+
+Il solaio di una cabina deve resistere a carichi concentrati notevoli, 
+l'ingresso dei cavi ai quadri invece può avvenire dal basso e poi risalire, 
+occorre predisporre cunicoli e tubazioni nel pavimento, in caso di numerosi 
+cavi è previsto un pavimento galleggiante, devono inoltre essere predisposte 
+delle distanze minime da rispettare per garantire il passaggio del personale 
+addetto, un'altezza minima è quella di 2 metri, oppure si considera un'altezza 
+maggiore della diagonale dell'involucro del quadro per permetterne un facile 
+spostamento. La larghezza minima deve essere di 80cm per permettere il 
+passaggio del personale, deve essere garantito un illumminamento di 200 lux.
+
+Una ulteriore soluzione praticata per utilizzare più trasformatori è quella di 
+una struttura ad anello aperto, ha una minore lunghezza dei cavi, dunque un 
+costo inferiore rispetto al radiale doppio con congiuntore NA (normalmente 
+aperto).
+
+\subsection{Ventilazione delle cabine}
+Una ventilazione che funziona male comporta rischi di incendio, c'è un problema 
+di riscaldamento in cabina. Si riconosce un forzamento pari alla potenza termica dissipata dalle macchine.
+$$
+P_t = (P_{fe} + P_{Cu}) = P_0 + P_k\frac{I^2}{I^2_r}\cdot 1.15
+$$
+le perdite vengono maggiorate del 15\% per tenere conto di tutti gli altri 
+elementi che producono calore in cabina, stimato in maniera conservativa.
+
+Si supponga di avere quattro aperture distanti $h$ in altezza, l'area della singola finestratura sarà
+$$
+A = 0.119 \frac{P_t}{\sqrt{h}}
+$$
+ricavata assumendo una temperatura interna di $40^\circ$ ed esterna pari a $30^\circ$, se si tiene conto delle reti protettive e gli ostacoli che possono ostruire le aperture, l'area va aumentata del 15\%.
+
+Se le aperture sono sulla stessa parete, il coefficiente raddoppia:
+$$
+A = 0.238 \frac{P_t}{\sqrt{h}}
+$$
+si deve supporre che il trasformmatore sia vicino alla parete con le aperture.
+
+La ventilazione naturale viene adoperata fino ad un $30\sim50\%$ del carico, dopodichè viene attivata la ventilazione forzata, se la temperatura supera i $35^\circ$, sostituisce completamente la ventilazione naturale. 
+La portata si calcola nel seguente modo:
+$$
+q_v = 346 P_t
+$$
+con $q_v$ la portata d'aria espressa in $m^3/h$ da garantire, $P_t$ la potenza 
+termica dissipata.
+
+Si deve evitare però che si alzi polvere con una velocità dell'aria maggiore di $3m/s$, i vari componenti elettrici potrebbero perdere la lora tenuta, si contaminerebbero le superfici isolanti.
+Si consideri ad esempio un locale sul livello del mare $6m\times 6m$ e altezza $h=3.5m$, sono installati due trasformatori con i seguenti dati 
+$$
+P_0 = 1.1\quad P_k = 7.6\ kW,\qquad P_t = 1.15(1.1+1.9)\cdot 2 = 6.9 kW
+$$
+l'apertura con distanza di $h=2.6m$ sarà pari a $A = 0.238\cdot\frac{6.9}{\sqrt{2.6}}= 1.02m^2$ con convezione naturale, approssimata a $1.2m^2$, è prevista un'apertura $2m\times 0.6m$.
+
+La venilazione forzata sarà pari a $$
+8.7\cdot 2\cdot 1.15 =  20.01 kW
+$$
+dunque la portata
+$$
+q_v = 246\cdot 20.01s = 346 P_t
+$$
+la velocità invece
+$$
+v = \frac{q_v}{3600\cdot 2\cdot 1.02}
+$$
+$1.02$ per tenere conto delle reti, $0.94m/s$, di gran lunga inferiore al limite di $3m/s$ impsoto.
+
+\section{Esempio di cabina}
+Si supponga un trasformatore in olio di potenza attiva 450kW e $\cos\varphi$ = 
+0.9, dunque una potenza apparente di 500kVA, si considera dunque un 
+trasformatore di 600kVA.
+
+Il cavo di collegamento avrà una sezione di $95 mm^2$ in accordo con le indicazioni del dsitributore, il quadro MT avrà una tensione nominale pari a 24kV, tensione di prova 50kV 5Hz, prova a impul
+
+
+
+Il sezionatore ha una corrente nominale da 630A, tempo di interruzione 70ms.
+
+I TA scelti sono della classe 5p30 con rapporto di trasformazione 300/5, corrente $I_{dyn} = 31.5\ kA$ e un TA toroidale.
+Il fattore limite è rispettato, aumenta a 100 dato che la potenza a  ssorbita dai cavetti e il relee è bassa.
+
+Il cavo di alimentazione del trasformatore MT è posato nel vano di fondazione della cabina, ha una portata di 179A, \SI{35}{\milli\meter^2}
+
+La corrente nominale primaria è 24.2A, la $I_{CC}$ trifase secondaria è 15.2kA.
+La $I_{cc}$ secondaria riportata al primario è pari a 405A.
+
+La conduttura che va dal trasformatore al quadro generale deve avere una portata superiore alla corrente nominale del trasformatore, si sceglie un cavo
+$$
+3(2\times 1\times 300) + 2 + 1\times(150)
+$$
+
+Il cavo in BT ha una corrente di breve durata di 25kA, l'interruttore magnetico generale, va tartato.
+
+\dots
+
+
+\section{Sovratensioni}
+Per la portezione da sovratensioni, soprattutto d itipo atmosferico, vanno dimensionati gli SPD.
+
+Una sovratensione è un valore di tensione che va oltre il valore di picco della 
+massima tensione nelle normalifunzionamento. Le sovratensioni si possono 
+inoltre classificare in funzione della loro durata, breve, media lunga e 
+lunghissima durata.
+
+Quando le sovratensioni si hanno tra conduttori attivi, si parla di sovratensioni trasversali, se si hanno tra i conduttori e la terra si parla di sovratensioni di modo comune o longitudinali.
+
+Un'ulteriore classificazione è effetuabile in funzione dell'origine della 
+sovratensione, qualora esse siano originate da manovreo  guasti si dicono di 
+origine interna, invece le fulminazioni sono di origine esterna.
+Le sovratensioni in genere non superano i 2.5kV, la forma d'onda
+$
+1.2/50\mu s
+$
+è assunta come forma rappresentativa delle sovratensioni di manovra con tempo 
+all'emivalore di 50 $\mu s$, la forma d'onda della corrente di scarica allunga 
+i tempi, la forma d'onda è $8/20 \mu s$, sale più lentamente a causa 
+dell'induttanza.
+Per quanto riguarda la massima sovratensione temporanea a frequenza di rete per il sistema in BT conseguente da un guasto in BT, il valore è pari a 500V per 5 secondi, per il sistema TT era per discernere se raggiungere il limite di 500V.
+Si può dedurre che tenendo conto che l'impianto di terra la $R_E$ è maggiore di $5-10 \Omega$ si può affermare che in tal caso, se la sovratensione è 500V e la resistenza di terra $>10\Omega$, invece le persone vengono colpite ...
+
+Si formano più scariche, la prima con carica più elevata e tempo discarica maggiore, le successive più brevi, in generale il fulmine lo si modella con un generatore di corrente ideale, la norma afferma che posso caratterizzare il fulmine con ill tempo al picco e il tempo all'emivalore.
+
+10/350 è la prima forma d'onda, 1/200 il primo colpo di fulmine negativo, 0.25/100 $\mu second$ il successivo?
+
+Per i fenomeni induttivi i colpi finali sono quelli più gravosi, nonostante la 
+carica inferiore, i primi colpi hanno un contenuto energetico elevato ma $di/dt$ modesto, dualmente i colpi successivi un contenuto energetico modesto ma 
+$di/dt$ elevato. Quando un fulmine colpisce un edificio si parla di 
+fulminazione diretta, altrimenti indiretta se non viene investito direttamente.
+
+Possono esserci fenomeni di accoppiamento di tipo induttivo o capacitivo, se la 
+sovratensione investe il dispersore di terra, la corrente incontrerà 
+un'impedenza convenzionale del dispersore, dunque si produrrà una sovratensione 
+causata da un accoppiamento resistivo, le sovratensioni conseguenti avranno la 
+stessa forma della corrente di fulmine ovvero 10/350 e sono le più elevate. Le correnti possono raggiungere le decine di kA, nel caso di fulminazione diretta si può considerare che la corrente in ciascun conduttore non superi 10kA.
+
+La circolazione di corrente produrrà un campo magnetico variabile che indurrà una forza elettromotrice, si parla di accoppiamenti di tipo A e accoppiamenti di tipo M, le entità delle sovratensioni di tipo induttivo sono più pericolosi perchè i valori delle pendenze nelle fasi successive, chiamate colpi di ritorno, sono più elevate, si considera la forma 0.25/100 $\mu s$ la forma delle correnti invece saranno $8/20\mu s$, in generale le correnti di scarica non superano i valori di 3 kA.
+
+
+Per accoppiamento capacitivo invece si può ritenere trascurabile rispetto ai precedenti.
+
+Un'apparecchiatura deve resistere alle sovratensioni, devono avere una tensione di tenuta ed un livello di immunità, ovvero il valore di tensione oltre il quale c'è la perdita.
+
+Tra il livello di immunità e il livello di tenuta è presente un danneggiamento dell'apparecchiatura.
+
+Le sovratensioni per accoppiamento resistivo possono provocare danni, quelle di tipo induttivo invece sono caratterizzare da un'enrgia modesta e possono arrecare danni solo alle apparecchiature.
+
+
+Sono presenti 4 zone per la bassa tensione, le apparecchiature più sensibili hanno una tensione di tenuta di 1.5kV, nella zona 1....
+
