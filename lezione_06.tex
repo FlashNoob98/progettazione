@@ -1,0 +1,214 @@
+
+\subsection{fulminazioni dirette}
+Un edificio in cemento armato, si assume munito di LPS, è collegato a terra 
+mediante un collettore e un dispersore con impedenza $Z$, all'interno 
+dell'edificio è presente una massa generica collegata alla linea elettrica a 
+sua volta collegata mediante un SPD all'impianto di terra, sono presenti 
+inoltre una tubazione idrica e una tubazione gas.
+
+Se le masse esterne sono collegate ad un manicotto isolante più lungo di un 
+metro non è necessario collegarle a terra. L'SPD produce una scarica verso 
+terra se si supera un certo valore di tensione.
+
+Data la scarica, metà corrente coinvolgerà il dispersore, l'altra metà le 
+rimanenti strutture.
+
+I dispersori non possono essere considerati equipotenziali, lo stesso può 
+essere visto come una linea, con un modello uniformemente distribuito formato 
+da tante resistenze in parallelo, a 50Hz, salendo con la frequenza invece 
+diventa un modello di tipo RLC, si parlerà di impedenza convenzionale di terra, 
+la corda di terra non sarà un conduttore equipotenziale, si risolverà questo 
+problema di equipotenzialità con gli schermi. Nel caso di fulminazione 
+indiretta ci saranno sovratensioni inferiori, quella diretta è la più 
+problematica.
+
+L'impedenza convenzionale di terra è il rapporto tra il valore di picco della tensione totale di terra e il valore di picco della corrente dispersa.
+
+Esistono due tipologie di accoppiamento induttivo: di tipo A se si considera la 
+sovratensione su un conduttore elettricamente collegato alla calata su cui 
+avviene la fulminazione, se la fem indotta è tale da configurare un circuito di 
+tipo spira, si potrebbe superare la rigidità dielettrica per cui ci sarà una 
+circolazione della corrente, il coefficiente di autoinduzione della spira 
+comprende la calata.
+$$
+L_a = l\frac{\mu_0}{2\pi} \ln \frac{d}{l}
+$$
+
+Tenendo conto degli ordinari valorid di $d$ ed $l$ il valore di induttanza per unità di lunghezza è pari a 1-1.5$\ \mu H/m$.
+
+È presente un forzamento in corrente, si vuole conoscere la sovratensione:
+$$
+u_a = L_{au} ll\frac{di}{dt}
+$$
+
+Il termine derivata è espresso come $i/T_c$ dove $i$ è il valore di picco della corrente di fulmine,
+si suppone che cui siano successivi colpi di fulmine
+$$
+\frac{di}{dt} = 
+$$
+è variabile per i primi colpi, si assume 
+%stop
+
+$$
+T_c = \frac{I}{\text{max}\{ \frac{di}{dt} \}} = 2.5\mu s
+$$
+la $u$ sarà 
+$$
+u_a = L_{au} -w-a
+$$
+l'impedenza convenzionale dunque assume i valori medi pari a 1.25 $\mu H/m$
+ per i colpi successivi, se la spira è più lunga di un metro si ha una sovratensionde di 5kV.
+
+ \subsection{Accoppiamento di tipo M}
+Si consideri la mutua induzione, tra la calata ed un circuito non collegati tra loro, il valore 5a. Se si vuole calcolare la corrente indotta:
+$$
+L_m \frac{d_{i}}{dt} = R_a i_n + L_a\frac{d_{i_n}}{dt}
+$$
+La corrente indotta è molto più piccola rispetto a quella inducente, i valori di $L_m$ sono più piccoli ai precedenti, si trascura il fenomeno di tipo induttivo.
+Per limitare le sovratensioni di tipo induttivo va limitata la dimensione delle spire.
+
+
+\section{Equipotenzialità e schermi}
+Siano date due masse $A$ e $B$, collegate mediante un conduttore di protezione 
+all'impianto di terra, con la circolazione di una corrente nella corda di terra 
+non si può più ritenere che ci sia l'equipotenzialità, esisteranno delle 
+sovratensioni a causa della resistenza del conduttore, esisterà comunque un 
+accoppiamento induttivo tra i conduttori e le spire, esisterà anche una piccola 
+sovratensione trasversale tra i due conduttori attivi, considerata trascurabile 
+data la relativa distanza piccola.
+
+Si prevede la presenza di uno schermo, collegato anch'esso alle masse delle 
+apparecchiature. Circolerà una certa corrente $I_s$ nello schermo, ma al suo 
+interno il campo magnetico sarà nullo dunque la differenza di potenziale tra le 
+masse si riduce alla caduta di tensione ohmica sullo schermo $R_s\cdot I_s$, lo 
+schermo deve comunque garantire la condizione di campo nullo al suo interno.
+
+Si sono eliminate le sovratensioni di tipo induttivo, si è ridotta la d.d.p.
+Si vuole stimare il valore della resistenza dello schermo al fine di avere
+$$
+R_s\cdot I_s \leq U_w
+$$
+Imponendo che la ripartizione della corrente mediante una legge lineare di partitore di corrente resistivo si può risolvere facilmente il problema.
+
+$$
+I_s = \frac{IR_{ct}}{R_{ct}+R_s} \Rightarrow \frac{R_sR_{ct}I_s}{R_{ct}+R_s} \leq U_W
+$$
+
+$$
+R_s = \frac{R_{ct}+U_w}{R_{ct}I-U_w}
+$$
+
+$$
+S = \rho l \left(\frac{I}{U_w}- \frac{1}{R_{ct}} \right)
+$$
+
+Se fossero presenti altri conduttori oltre al conduttore di terra, si 
+ridurrebbe la corrente nello schermo, se lo schermo fosse già esistente e non 
+si potrebbe aumentare la sua sezione. Si garantisce comunque un campo nullo al 
+suo interno.
+
+\section{Sovratensione su una linea che entra nell'edificio}
+Anche in questo caso la linea sarà già dotata di schermo messo a terra in 
+prossimità del ddispersore dell'edificio e messo a terra in prossimità della 
+cabina MT/BT.
+
+Si ritiene che in caso di fulminazione dell'edificio il 50\% della corrente si ripartisca tra il dispersore e gli altri corpi metallici, in realtà se si volesse calcolare la corrente che circola nella generica parte metallica
+$$
+nI_F = \frac{ZI}{\frac{Z_1}{n}+Z} \Rightarrow I_F = \frac{IZ}{Z_1+nZ}
+$$
+Lo schermo sui conduttori condurrà ``indietro'' la corrente di scarica, la 
+sovratensione potrebbe essere talmente elevata da rompere il dielettrico dei 
+conduttori che condurranno conseguentemente la corrente di scarica.
+$$
+I_S = \frac{n_cI_F}{R_c + n_cR_s} \quad I_{condutt} = \frac{R_S}{R_c+nR_s}
+$$
+
+La messa a terra del cavo fa sì che le sovratensioni tra i conduttori attivi e la massa siano riconducibili solo alla caduta resistiva sul cavo.
+
+Si può ridurre il valore della sovratensione tra i conduttori attivi e la massa ad un valore conveniente che dipende solo dalla resistenza dello schermo. Occorre tenere conto se lo schermo è collegato in intimo contatto con il terreno o solo all'estremità, nel primo caso la corrente viene dispersa lungo il suo percorso e si considera la lunghezza equivalente pari a 
+$$
+L_{eq} = 8\sqrt{\rho_t}
+$$
+dunque la sezione
+$$
+\frac{\rho 8 \sqrt{\rho_t}I_S}{S} = U_w
+$$
+
+\section{Protezioni dalle sovratensioni}
+Si adottano vari sistemi come l'SPD ad arrivo linea per sovratensioni di media 
+intensità o LPS per sovratensioni di alta entità. In caso di sovratensioni a 
+basso contenuto energetico sono previsti solo SPD nei quadri secondari e di 
+apparecchiatura.
+
+Le protezioni si dividono in tipo preventivo, più costose come l'LPS, e repressivo, l'opportuno distanziamento dell'LPS dai vari circuiti garantisce un'altra forma di protezione.
+
+Una considerazione preliminare può essere quella di sfruttare la struttura in cemento armato se ritenuta continua, può essere considerata già una struttura LPS, inoltre è importante cercare di perseguire quanto possibile l'equipotenzialità mediante l'adozione di schermature.
+
+Il funzionamento degli SPD si può suddividere in tre fasi:
+\begin{enumerate}
+    \item Funzionamento ordinario: impedenza elevata e nessun incidenza sul circuito installato
+    \item La sua impedenza si riduce a seguito della sovratensione, permette il passaggio di corrente con conseguente abbassamento della sovratensione
+    \item Ritorno alla condizione iniziale di funzionamento ordinario
+\end{enumerate}
+
+Si definisce la tensione massima continuativa di esercizio deve essere 
+superiore del 10\% della tensione nominale, deve sopportare le sovratensioni 
+temporanee a frequenza di rete.
+Deve sopportare la corrente continuativa di esercizio, deve essere trascurabile 
+altrimenti potrebbe causare un malfunzionamento dei differenziali, non 
+dovrebbero superare $I_{dn}/3$.
+
+Nella fase 2 c'è la corrente nominale di scarica, il valore di picco della 
+corrente con forma d'onda $8/20\ \mu s$. La corrente massima di scarica è il 
+valore di picco della massima corrente con forma d'onda che l'SPD può scaricare 
+almeno una volta.
+
+La corrente ad impulso, il valore di picco della corrente con forma d'onda 10/
+350 ad impulso.
+
+Tensione residua, la tensione ai terminali dell'SPD a seguito della scarica, 
+impedisce la persistenza della corrente a seguito della sovratensione, si 
+presenterebbe una tensione permanente sulle masse. 
+
+Inoltre si stabilisce il livello di protezione, il livello normalizzato di 
+tensione immediatamente superiore alla tensione di innesco e alla tesione 
+residua. 
+
+La corrente susseguente nella fase 3, il valore che circola nell'SPD dopo la 
+scarica, esistono SPD di tre tipi: a commutazione, a limitazione di tensione, 
+combinato.
+A commutazione sono gli spinterometri o i diodi controllati, i più diffusi ed 
+economici, hanno una tenisone di innesco elevata, il loro livello di protezione 
+potrebbe non essere adeguato per proteggere la BT, possono essere adoperati 
+sostituendo il gas al loro interno per abbassare il livello di innesco, 
+potrebbero non essere in grado di interrompere la corrente susseguente.
+
+SPD a limitazione di tensione come i diodi Zener, non è presente la corrente di corto circuito sostenuta, per il comportamento ai differenziali potrebbero presentare un problema a causa delle correnti continuative diverse da zero.
+
+Gli SPD combinati sono una combinazione dei due, solitamente collegati in serie.
+Gli SPD di classe 1 sono adatti per qualunque tipo di circuito, proteggono 
+dalla fulminazione diretta. Gli SPD di classe 2 proteggono i quadri di 
+distribuzione e di apparecchiatura, quelli di classe 3 hanno un grado di 
+protezione più fine, adatti alle apparecchiature elettroniche.
+
+La legge generale per proteggere le apparecchiature è quella di disporre gli 
+SPD il più vicino possibili alle apparecchiature da proteggere, esiste infatti 
+un fenomeno di propagazione e riflessione della tensione, dal momento in cui 
+inizia la tensione cimatrice dell'SPD, la tensione sull'apparecchiatura 
+continua comunque a salire.
+Le cadute potrebbero essere contemporanee o non contemporanee ad $U_p$ oppure potrebbero presentarsi casi più gravosi, il miglior collegamento è quello di tipo entra-esci.
+La sovratensione aggiuntiva dovuta al fenomeno di riflessione è 
+$$
+2\rho \frac{D}{v}
+$$
+bisogna dunque ridurre al minimo la distanza tra l'SPD e le apparecchiature da proteggere.
+
+Le sezioni minime dei conduttori di collegamento per gli SPD sono:
+\begin{itemize}
+    \item 6$mm^2$ per classe I
+    \item 6$mm^2$ per classe II 
+    \item 1.5$mm^2$ per classe III
+\end{itemize}
+Se deve scaricare una corrente maggiore di 50kA si usa una sezione di 16$mm^2$, si potrebbero collegare più SPD in cascata, un utile coordinamento prevede quello di far intervenire prima quelli di classe I e così via, si adotta un criterio di energia passante $I^2t$.
+È importante anche il coordinamento degli SPD con i differenziali.
+
