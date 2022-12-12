@@ -1,0 +1,146 @@
+
+Si possono inserirre gli SPD a monte ma ciò potrebbe causare problemi per 
+quanto riguarda la protezione dai contatti indiretti in caso di 
+malfunzionamento dell'SPD, si porterebbero le masse ad una tensione pericolosa 
+$U_E$ con una corrente non percepita dal differenziale.
+C'è però il vantaggio di proteggere anche il differenziale dalle sovratensioni, 
+si ricorre ad una soluzione ingegnosa, per far intervenire la protezione a 
+monte si collega il neutro a terra, mediante uno spinterometro a valle, in tal 
+modo non si avranno correnti continuative nel circuito di terra ma un eventuale 
+guasto degli SPD varistometrici causerà una corrente di guasto elevata che si 
+richude nel neutro, causando l'intervento dell'interruttore a monte.
+
+La scelta dell'SPD spinterometrico deve avere una capacità di scarica pari 
+almeno alla somma delle capacità di scarica dei tre SPD superiori.
+
+\section{Alimentazione ed illuminazione di emergenza}
+
+È necessario prevedere un'alimentazione di emergenza, si tratterà di 
+alimentazione di sicurezza e di riserva, non si può assumere che ci sia sempre 
+disponibilità continua dell'energia. È improbabile creare una rete con due 
+alimentazioni indipendenti, si deve avere una alimentazione di emergenza per un 
+designato gruppo di utenze privilegiate.
+
+L'alimentazione di sicurezza è destinata a garantire la sicurezza delle 
+persone, altrimenti ssi parlerà di alimentazione di riserva per motivi diversi.
+
+Quando si parla di assicurare il servizio di sicurezza si comprendono la 
+sorgente, i circuiti e gli altri componenti elettrici di sicurezza, dovranno 
+avere certe caratteristiche.
+
+Si deve garantire un'alimentazione di assoluta continuità, si utilizzeranno in 
+questo caso gli UPS, si parla invece di interruzione brevissima se minore di 0.
+15s, breve se maggiore di 0.15s ma minore di 0.5 secondi, media se maggiore di 
+0.5 ma minore o uguale a 15 secondi, lunga se maggiore di 15 secondi.
+
+
+Per quanto riguarda le sorgenti si prevedono batteria di accumulatori, 
+generatore indipendente dall'alimentazione ordinaria, oppure si potrebbe 
+prevedere una linea indipendente dalla linea ordinaria, è un'utenza molto 
+particolare con alimentazione proveniente da due cabine primarie diverse.
+
+L'ubicazione del locale deve essere accessibile solo al personale addestrato, 
+bisogna assicurare che non ci siano problemi legati all'incendio, non si devono 
+propagare fumi e gas.
+
+Per quanto riguarda i circuiti di sicurezza è opportuno predisporre un circuito 
+indipendente da quello ordinario che ha il compito di collegare la sorgente di 
+sicurezza e la parte dell'impianto che si desidera alimentare, si deve 
+assicurare l'indipendenza dagli altri circuiti, non si devono attraversare 
+luoghi con pericolo d'incendio a meno che non siano realizzati con materiali 
+che siano resistenti al fuoco, non devono attraversare luoghi con pericolo 
+d'esplosione, è consigliabile omettere la protezione contro il sovraccarico, è 
+ritenuto più accettabile il rischio contro il sovraccarico piuttosto che la 
+disalimentazione del carico.
+
+È preferibile inoltre la protezione dai contatti indiretti senza interrompere 
+l'alimentazione, per i corto circuiti è opportuno avere la protezione per 
+circuiti distinti per disalimentare il minor numero possibile di servizi.
+
+Durante la vita degli impianti si può avere l'alimentazione mediante servizio 
+ordinaria, o esclusivamente dalla sorgente di sicurezza oppure l'utneza sarà 
+alimentata normalmente dalla rete ed eccezionalmente dalla rete di sicurezza.
+
+La rete generalmente presenta variazioni di tensioni, interruzione 
+dell'alimentazione, sovratensione, variazioni di frequenza, armoniche.
+
+Per le variazioni di frequenza, che possono essere $\pm 5\%$, i sistemi 
+elettrici a partire dalla trasmissione fino all'utenza finale sono in cascata.
+si ha una progressiva degradazione della tensione, con frequenza wwvariabile.
+
+Si vedono ora le diverse varianti dRLL'ups....
+
+In condizioni normali si alimenta dalla rete ma c'è comunque la carica della 
+batteria che può essere al piombo o al Nickel-Cadmio, la configurazione è 
+abbastanza semplice ma ha il difetto intrinseco di un tempo di commutazionne 
+non nullo.
+
+Un UPS ``Online'' è caratterizzato da assoluta continuità, in condizioni 
+normali did funzionamento il flusso proviene da ambo le parti verso la 
+batteria, se l'inverter va in sovraccarico per $I>1.5I_n$ automaticamente 
+l'alimentazione si sposta direttamente sulla rete, la rete alimenta le utenze e 
+la batteria. Si assicura il tempestivo passaggio all'alimentazione della rete.
+Si ha continutà assoluta in questo caso.
+Nello schema reale è presente un bypasss manuale che permette di isolare 
+l'intero UPS, garantisce il funzionamento del sistema collegando direttamente 
+le utenze alla rete.
+
+I parametri di scelta di un UPS sono la potenza nominale, la potenza attiva 
+(con fattore di poteza circa 0.7 o 0.8), la distorsione armonica, l'autonomia, 
+la tensione in uscita.
+Si è sempre privilegiato un gruppo di contiutià statico, si possono utilizzare 
+gruppi di continuità rotanti, suddivisi in riserva limitata e riserva 
+illimitata. Un esempio a riserva illimitata è con l'ausilio di un motore Diesel.
+Un'alimentazione di assoluta continuità senza convertitori invece prevede la 
+presenza di un motore-volano-generatore-motore diesel.
+
+\subsection{Illuminazione di sicurezza e riserva}
+La prima deve permettere l'esodo delle persone in caso di emergenza, quella di 
+riserva deve permettere la continuazione delle attività svolte.
+Si parla anche di illuminazione sussidiaria, si intende di riserva ma se ne 
+prescrive l'esistenza in stabilimitenti o altri luoghi di lavoro per evitare 
+situazioni di pericolo.
+Per le vie di esodo bisogna garantire un illuminamento minimo di 1lux sulla 
+linea mediana e 0.5 lux in una fascia centrale pari alla metà della larghezza 
+della via di esodo. Nei luoghi di pubblico spettacolo, l'illuminamento minimo 
+ad un metro dal piano di calpestio in corrispondenza di scale e porte deve 
+essere 5 lux oppure 2 lux nelle altre zone, l'autonomia deve essere di un'ora.
+
+I corpi illuminanti potrebbero essere distinti da quelli ordinari, si deve 
+prevedere un circuito indipendente, si potrebbe per una questione di 
+opportunità adoperare gli stessi apparecchi illuminanti, si deve garantire la 
+possibilità di alimentarli con due linee distinte.
+Un'unità di controllo nell'apparecchio potrebbe tenere sempre in carica la 
+batteria, in caso di guasto avverrà la commutazione sulla batteria.
+
+\section{Protezioni con alimentazione alternativa}
+
+Un gruppo elettrogeno ha solitamente una corrente di corto circuito pari a 
+circa 5 volte la corrente nominale, ciò è sicuramente inferiore alla corrente 
+di corto circuito proveniente dalla rete, ciò potrebbe causare un non 
+intervento delle protezioni.
+
+Vengono solitamente utilizzati i generatori sincroni a poli salienti, 
+presentano un volano per garantire una stabilità della frequenza, ovvero 
+ridurre le variazioni di velocità dovute al motore diesel, inoltre devono avere 
+la presenza di un avvolgimento smorzatore.
+
+L'eccitazione d ella macchina deve aumentare a fronte di carico induttivo, èe 
+necessario che il riferimento di tensione sul rotore deve essere maggiore alla 
+tensione in uscita e proporzionale alla potenza reattiva, dunque alla caduta di 
+tensione interna alla macchina, da compensare.
+
+Si deve prevedere la commutazione rete-gruppo, esiste un quadro di commutazione 
+che può commprendere un interruttore gruppo, la rete potrebbe ritornare dopo un 
+breve intervallo, dunque non va avviato subito il gruppo, inoltre in caso di 
+sequenze di avviamenti andranno comunque previste delle pause, tutti questi 
+tempi potrebbero raggiungere i 60 secondi, soltanto dopo che è avvenuto 
+l'avviamento si chiude l'interruttore del gruppo dando consenso alla 
+commutazione.
+
+Se il gruppo funziona in isola ha un regolatore di velocità a statismo 
+regolabile, ovvero a velocità fissata, si tende a cercare uno statismo pari a 
+zero, ovvero una velocità indipendente dalla potenza richiesta. In caso di 
+funzionamento in parallelo con la rete invece la frequenza è imposta e lo 
+statismo può essere variato.
+
