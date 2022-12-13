@@ -1,0 +1,173 @@
+
+Il quadro di commutazione di un gruppo elettrogeno, qualora quest'ultimo fosse molto distante, è preferibile spostarlo in 
+prossimità dei carichi privilegiati, nelle condizioni di normale funzionamento 
+altrimenti ci sarebbe un cavo di collegamento molto lungo, creando uno 
+svantaggio duranto le condizioni di normale funzionamento in cui per il 99\% 
+del tempo, l'alimentazione proviene dalla rete.
+
+In caso di corto circuito, la tensione di eccitazione potrà diminuire, andrebbe 
+spinta al massimo per garantire la stabilità della tensione di trasmissione.
+In caso di sovravelocità potrebbero esserci problemi al motore primo, in 
+particolare al sistema pompa-iniezione, il generatore invece è protetto 
+dall'interruttore automatico del gruppo, c'è un limite al sovraccarico.
+
+L'interruttore del gruppo svolge un ruolo fondamentale alla protezione 
+dell'intero sistema, va scelta la corrente di sicuro intervento entro un'ora 
+$I_h$, anche il motore può funzionare in sovraccarico con $k_P \sim 1.1$. 
+Il motore primo non ha un'intelligenza prevista.
+$$
+P = \sqrt{3}U_n I_n \cos\varphi \leq k_P
+$$
+Si ipotizza il rendimento unitario per l'alternatore.
+La corrente di sicuro intervento entro un'ora è dunque:
+$$
+I_n \leq \frac{k_P}{\sqrt{3} U_n \cos \varphi}
+$$
+con $k_P$ la potenza del motore primo, il $\cos\varphi$ si assume pari a 0.8.
+La protezione può diventare insufficiente se il $\cos\varphi>0.8$ e intempestiva se $\cos\varphi<0.8$.
+
+La norma non stabilisce alcunchè per quanto riguarda il sovraccarico 
+dell'alternatore che potrebbe invece funzionare in sovraccarico per un tempo 
+limitato. Si suppone che possa funzionare per un'ora con una corrente il $10\%$ 
+superiore alla nominale.
+
+L'interruttore deve intervenire anche per l'apertura del magnetico, la soglia 
+deve essere minore della minima corrente di CC, sicuramente interverrà per una 
+corrente più elevata, sarà solitamente pari a tre volte la corrente nominale.
+
+Qualora l'interruttore sia ritardato, anche in presenza del booster, la $I_{cc}$
+sarà tre volte la corrente nominale, a causa dei circuiti di sovraeccitazione
+questa sarà maggiore.
+
+La scelta del gruppo elettrogeno, dipende dal carico, dalla loro criticità, 
+implica l'identificazione della potenza del motore primo e del generatore.
+La potenza attiva erogabile dall'alternatore dipende dal $\cos\varphi$ 
+assumibile pari a 0.8. Il motore primo dovrà fornire una potenza pari a 
+$P=0.8S$ maggiorato di un 10\% dunque $P=0.88S$ con $S$ la potenza apparente 
+dell'alternatore.
+
+Se il $\cos\varphi$ diventa pari a 0.9 la potenza del motore primo diventa più 
+grande, va in sovraccarico, l'alternatore non può percepire il sovraccarico del 
+motore, la corrente è la stessa, dualmente se il $\cos\varphi$ è minore di 0.8, 
+a parità di potenza attiva, aumenterà la corrente, va in sovraccarico 
+l'alternatore.
+
+Parametri del gruppo elettrogeno
+\begin{itemize}
+    \item Potenza continua, il valore massimo che può fornire con continuità 
+    con carico elettrico costante.
+    \item Potenza prima, la potenza massima che può fornire in servizio sempre 
+    continuo con carico elettrico variabile. La potenza media non deve essere 
+    superiore al 70\% della potenza prima.
+    \item Potenza continua in emergenza, deve dare una potenza costante in un 
+    intervallo di tempo limitato, 500 ore, con carico costante.
+    \item Potenza prima in emergenza, la potenza massima con carico variabile 
+    con un intervallo di tempo di 200 ore.
+\end{itemize}
+Per gli alternatori esiste la potenza nominale continua di base e continua di 
+punta.
+Le condizioni ambientali devono essere specificate, qualora fossero differenti 
+si dovrà procedere al de-rating.
+
+Per la potenza di base bisogna tener conto della potenza del carico senza 
+sovrabbondare in maniera scriteriata, causando un inutile aggravio economico e 
+per i sistemi di protezione, eventualmente con maggiori perdite di rendimento.
+inoltre i carichi devono essere equilibrati al fine di far funzionare 
+l'alternatore al meglio. in caso di funzionamento monofase la potenza sarà un 
+terzo della potenza totale, non si può comunque superare la corrente massima, 
+va comunque fatta la riflessione di un funzionamento degradato.
+
+Un gruppo elettrogeno destinato ad alimentare carichi squilibrati va progettato 
+su misura, accordato con il costruttore si sovradimensionerà l'alternatore.
+
+L'ultimo aspetto da considerare è l'alimentazione dei grandi motori asincroni, durante l'avviamento saranno presenti correnti elevate.
+$$
+I_n = \frac{P_n}{\sqrt{3}U_n\eta\cos\varphi}
+$$
+ma all'avviamento la corrente è $KI_n$ con $K$ tra 4 e 8, l'alternatore dovrà fornire questa corrente, dunque la potenza pari a
+$$
+S = \sqrt{3}U_nKI_n
+$$
+sarebbe un sovradimensionamento eccessivo, si stima invece che l'alternatore 
+può essere sovraccaricato di un fattore di 2.5, senza necessità di 
+sovradimensionamento, il tempo di avviamento è breve.
+
+Si considera un rendimento di $\eta=0.95$ e $\cos\varphi=0.8$ allora $S=3P$
+$$
+S = \frac{\sqrt{3} U_n K I_n}{2.5}
+$$
+Anche il motore primo deve essere preso pari a $3P$ dato che la potenza attiva sarà
+$$
+P = \sqrt{3} U_n I_n K \cos\varphi_{avv}
+$$
+il $\cos\varphi$ all'avviamento è solitamente la metà di quello nominale.
+Dunque la potenza attiva richiesta al motore primo sarà $KP/2$.
+
+\subsection{Protezione contro le sovracorrenti}
+Per la protezione contro i contatti indiretti si sfrutta la teoria delle 
+componenti in sequenza.
+$$
+\begin{aligned}
+    &\left.x_d(s)\right|_{s=0} = x_d \\
+    &x_d(\infty) = x''_d\\
+    &x'_d
+\end{aligned}
+    $$
+La componente simmetrica della corrente di CC ha valore pari ad $I''_K = U_0/x''_d$.
+Si definisce l'impedenza base di macchina:
+$$
+Z_n = \frac{U_n^2}{S} = \frac{U_n}{\sqrt{3}I_n}
+$$
+dunque 
+$$
+\frac{I''_k}{I_n} = \frac{U_0}{x''_dI_n} = \frac{U_0\sqrt{3}Z_n}{x''_dU_n}
+$$
+Olre al valore efficace è importante trovare anche il valore di picco della 
+corrente, si assume in maniera conservativa $2\sqrt{2}I''_k$.
+
+Qualora l'alternatore fosse dotato di booster, non ha senso parlare di corto 
+circuito, il booster sostiene la corrente di guasto.
+
+
+Corto circuito di fase, la corrente sarà la radice di 3 diviso due per la $I''_k$ nell'ipotesi legittima che la reattanza alla componente simmetrica sia pari a..
+$$
+I''_{k2} =\frac{3}{2}I''_k
+$$
+
+La corrente di corto circuito monofase sarà più gravosa
+$$
+I''_{k1} = \frac{3U_0}{x''_d + x_i + x_o} \simeq \frac{3U_0}{2x''_d + x_o}
+$$
+
+La $I''_{k1}$ è più grande della $I_{2k}$ di circa $1.3 \simeq 1.4$, lo stesso ragionamento si può distinguere tra la corrente monofase transitoria:
+$$
+I'_{k1} = \frac{3U_0}{x''_d + x_i +  x_o}
+$$'
+La conoscenza di $I''_{k1}$ permette di dimensionare l'interruttore al fine di riuscire ad interrompere almeno la corrente di picco.
+Va anche valutata la corrente di corto circuito minima che si verifica a fine linea.
+
+Se il neutro non è distribuito, la corrente di $I_CC$ minima si calcola con le 
+reti di sequenza,
+la $I_{cc}$ minima bisogna riferirsi alla fase transitoria, la corrente di 
+corto circuito.
+
+Se il neutro è distribuito ed ha la stessa sezione del conduttore di fase, la 
+condizione peggiore è ancora quella di corto circuito bifase transitoria.
+
+La corrente di corto circuito minima è la mminima tra la $I'_{K1}$ e $I'_{K2}$, valutare se incide la minore sezione del neutro.
+
+Se il gruppo elettrogeno è destinato a funzionare in parallelo con la rete, (solitamente i generatori asincroni), si deve verificare che la corrente di corto circuito sulle sbarre in BT non superi il valore di 50 kA.
+
+\subsection{Protezione contro i contatti indiretti}
+Se il gruppo deve funzionare in parallelo alla rete allora la tipologia di 
+protezione deve essere necessariamente la stessa della rete, se il gruppo è 
+destinato a funzioanre in isola in condizioni ordinarie, allora si comporta 
+come un sistema con cabina propria, può avere qualsiasi tipo di protezione.
+
+Se nelle condizioni di funzionamento ordinario il sistema è di tipo TT, quando 
+si va in emergenza sarà corredato di interruttori differenziali, non c'è la 
+rete ma ci sarà il gruppo elettrogeno, il neutro sarà collegato all'impianto di 
+terra, di fatto si è configurato un sistema TN.
+
+Si potrebbe gestire come sistema IT, con neutro sezionabile.
+
